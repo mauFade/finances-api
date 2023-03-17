@@ -1,1 +1,1 @@
-# finances-api
+# Finances Api
