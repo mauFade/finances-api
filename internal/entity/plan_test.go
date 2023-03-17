@@ -39,3 +39,14 @@ func TestIfNametIsBlank(t *testing.T) {
 
 	assert.Error(t, plan.Validate(), "Plan name is required")
 }
+
+func TestPlanWithValidaParams(t *testing.T) {
+	plan := &Plan{
+		ID:           "ID",
+		ExchangeType: "Income",
+		Amount:       15.0,
+		Name:         "Salary",
+	}
+
+	assert.Equal(t, 15.0, plan.Amount)
+}
