@@ -25,3 +25,29 @@ func (repository *PlanRepository) Create(plan *entity.Plan) error {
 
 	return nil
 }
+
+func (repository *PlanRepository) Find() ([]*entity.Plan, error) {
+	query, err := repository.DB.Query("SELECT * FROM plans")
+
+	if err != nil {
+		return nil, err
+	}
+
+	defer query.Close()
+
+	var plans []*entity.Plan
+
+	for query.Next() {
+		var plan *entity.Plan
+
+		err = query.Scan(&plan.ID, &plan.ExchangeType, &plan.Amount, &plan.Name)
+
+		if err != nil {
+			return nil, err
+		}
+
+		plans = append(plans, plan)
+	}
+
+	return plans, nil
+}
