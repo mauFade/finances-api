@@ -30,7 +30,7 @@ func TestIfAmountIsBlank(t *testing.T) {
 	assert.Error(t, plan.Validate(), "Plan amount is required")
 }
 
-func TestIfNametIsBlank(t *testing.T) {
+func TestIfNameIsBlank(t *testing.T) {
 	plan := &Plan{}
 
 	plan.ID = "ID"

@@ -41,3 +41,8 @@ func (plan *Plan) Validate() error {
 
 	return nil
 }
+
+type PlanRepository interface {
+	Create(plan *Plan) error
+	Find() ([]*Plan, error)
+}
